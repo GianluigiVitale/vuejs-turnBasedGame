@@ -23,6 +23,15 @@ new Vue({
 
             this.monsterAttacks();
         },
+        specialAttack: function () {
+            var damage = this.calculateDamage(10, 20);
+            this.monsterHealth -= damage;
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player hits Monster hard for ' + damage
+            });
+            this.monsterAttacks();
+        },
         monsterAttacks: function() {
             var damage = this.calculateDamage(5, 12);
             this.playerHealth -= damage;
